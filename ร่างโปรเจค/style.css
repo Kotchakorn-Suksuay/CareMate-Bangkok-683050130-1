@@ -1,0 +1,449 @@
+/* ==========================================================================
+   CareMate Bangkok — Private Medical Concierge Theme
+   Unified Quiet Luxury Design System (Royal Midnight Navy & Champagne Gold)
+   ========================================================================== */
+
+:root {
+    --lux-navy: #0e2038;
+    --lux-navy-dark: #071526;
+    --lux-navy-light: #183556;
+    --lux-gold: #c59b6d;
+    --lux-gold-hover: #b48958;
+    --lux-gold-light: rgba(197, 155, 109, 0.12);
+    --lux-gold-border: rgba(197, 155, 109, 0.3);
+    --lux-bg: #fafaf9;
+    --lux-slate: #475569;
+
+    /* Semantic Tokens mapped to unified palette */
+    --v-primary: #0e2038;
+    --v-primary-hover: #183556;
+    --v-primary-light: rgba(197, 155, 109, 0.12);
+    --v-navy: #0e2038;
+    --v-navy-light: #183556;
+    --v-accent: #c59b6d;
+    --v-slate: #475569;
+    --v-bg: #fafaf9;
+}
+
+/* Base & Typography (IBM Plex Sans Thai + Plus Jakarta Sans + Playfair Display) */
+html {
+    scroll-behavior: smooth;
+}
+
+*, ::before, ::after {
+    font-family: inherit;
+}
+
+body, input, button, select, textarea, table, th, td {
+    color: #1e293b;
+    font-family: 'IBM Plex Sans Thai', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+}
+
+body {
+    background-color: var(--lux-bg);
+}
+
+/* Editorial Serif for Quiet Luxury Concierge */
+.font-serif, .editorial-serif {
+    font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif !important;
+}
+
+/* Monospace / Tabular Numbers for Currency and Codes */
+.font-mono, [class*="font-mono"] {
+    font-family: 'Plus Jakarta Sans', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+    font-feature-settings: "tnum" 1, "cv01" 1;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'IBM Plex Sans Thai', 'Plus Jakarta Sans', sans-serif;
+    color: var(--lux-navy);
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+/* SPA Transitions */
+.view-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(4px);
+}
+
+.view-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Theme Utilities */
+.text-navy { color: var(--lux-navy) !important; }
+.text-gold { color: var(--lux-gold) !important; }
+.bg-gold-light { background-color: var(--lux-gold-light) !important; }
+
+/* Luxury Soft Accent Badge */
+.badge-accent-soft {
+    background: rgba(197, 155, 109, 0.1);
+    color: #956e43;
+    padding: 6px 16px;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(197, 155, 109, 0.32);
+    letter-spacing: 0.01em;
+}
+
+/* Trust Pill Components */
+.trust-pill {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 7px 16px;
+    border-radius: 9999px;
+    font-size: 0.82rem;
+    color: var(--lux-navy);
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(14, 32, 56, 0.03);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.trust-pill:hover {
+    border-color: var(--lux-gold);
+    background-color: #fdfbf8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(197, 155, 109, 0.15);
+}
+
+/* Glowing Primary Button: Royal Midnight Navy with Gold Accent */
+.btn-primary-glow {
+    background: linear-gradient(135deg, #0e2038 0%, #1a365d 100%);
+    color: #ffffff !important;
+    border: 1px solid rgba(197, 155, 109, 0.45);
+    box-shadow: 0 6px 20px rgba(14, 32, 56, 0.22);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-primary-glow:hover {
+    background: linear-gradient(135deg, #183556 0%, #244673 100%);
+    border-color: #c59b6d;
+    box-shadow: 0 10px 24px rgba(14, 32, 56, 0.32);
+    transform: translateY(-2px);
+}
+.btn-primary-glow:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* Gold Button */
+.btn-gold {
+    background: linear-gradient(135deg, #c59b6d 0%, #b48958 100%);
+    color: #ffffff !important;
+    box-shadow: 0 6px 20px rgba(197, 155, 109, 0.28);
+    transition: all 0.25s ease;
+}
+.btn-gold:hover {
+    background: linear-gradient(135deg, #b48958 0%, #9f7242 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(197, 155, 109, 0.38);
+}
+
+/* Navy Button */
+.btn-navy {
+    background-color: var(--lux-navy);
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(14, 32, 56, 0.2);
+    transition: all 0.25s ease;
+}
+.btn-navy:hover {
+    background-color: var(--lux-navy-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(14, 32, 56, 0.28);
+}
+
+/* Package Card */
+.package-card {
+    background: #ffffff;
+    border: 1px solid #e5e9f0;
+    border-radius: 24px;
+    padding: 28px 22px;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 25px -5px rgba(14, 32, 56, 0.04);
+    position: relative;
+    overflow: hidden;
+}
+.package-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--lux-gold);
+    box-shadow: 0 20px 35px -8px rgba(197, 155, 109, 0.18);
+}
+.package-card.featured {
+    border: 1.5px solid var(--lux-gold);
+    background: linear-gradient(180deg, #ffffff 0%, #fdfbf8 100%);
+    box-shadow: 0 12px 30px -5px rgba(197, 155, 109, 0.12);
+}
+.package-card.featured:hover {
+    box-shadow: 0 24px 42px -8px rgba(197, 155, 109, 0.22);
+}
+
+/* Ribbon */
+.featured-ribbon {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: linear-gradient(135deg, #0e2038, #183556);
+    color: #dfba8e;
+    border: 1px solid rgba(197, 155, 109, 0.4);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 10px rgba(14, 32, 56, 0.2);
+}
+
+/* Icon Box */
+.icon-wrapper-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: #fcfbf9;
+    color: #956e43;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    border: 1px solid rgba(197, 155, 109, 0.3);
+    box-shadow: 0 4px 12px rgba(14, 32, 56, 0.03);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.package-card:hover .icon-wrapper-box {
+    background: #0e2038;
+    border-color: #c59b6d;
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(14, 32, 56, 0.2);
+}
+.package-card:hover .icon-wrapper-box svg path[stroke="#0e2038"],
+.package-card:hover .icon-wrapper-box svg rect[stroke="#0e2038"] {
+    stroke: #ffffff;
+}
+.package-card:hover .icon-wrapper-box svg circle[fill="#0e2038"] {
+    fill: #dfba8e;
+}
+
+/* Toast Animation */
+@keyframes slideInUp {
+    from { transform: translateY(16px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.toast-enter {
+    animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Vitals Cards Styling */
+.vitals-badge-pulse {
+    position: relative;
+}
+.vitals-badge-pulse::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #10b981;
+    top: -2px;
+    right: -2px;
+    animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes ping {
+    75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* Star Buttons */
+.star-btn {
+    cursor: pointer;
+    transition: transform 0.15s ease, color 0.15s ease;
+}
+.star-btn:hover {
+    transform: scale(1.25);
+}
+
+/* Modern Card Glow */
+.card-hover-glow {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-hover-glow:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px -8px rgba(6, 49, 93, 0.08);
+    border-color: #93c5fd;
+}
+
+/* Mobile Bottom Navigation Bar */
+.mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid #e2e8f0;
+    z-index: 45;
+    padding: 6px 12px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -4px 16px rgba(6, 49, 93, 0.06);
+}
+.mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    border: none;
+    background: transparent;
+}
+.mobile-nav-item.active {
+    color: var(--v-primary);
+    font-weight: 700;
+}
+.mobile-nav-item i {
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+
+/* Stepper Line */
+#stepper-line {
+    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Print Stylesheet for A4 */
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 10mm;
+    }
+    body {
+        background: white !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        color: #000 !important;
+    }
+    nav, main, footer, #chatBox, #toast-container, .mobile-bottom-nav,
+    .no-print, button:not(.allow-print) {
+        display: none !important;
+    }
+    #receiptModal, #clinicalSummaryModal, #insuranceClaimModal {
+        position: static !important;
+        display: block !important;
+        background: transparent !important;
+        padding: 0 !important;
+        opacity: 1 !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+    #receiptModal > div, #clinicalSummaryModal > div, #insuranceClaimModal > div {
+        box-shadow: none !important;
+        border: none !important;
+        max-width: 100% !important;
+        max-height: none !important;
+        padding: 0 !important;
+        overflow: visible !important;
+    }
+    #receipt-printable-card, #clinical-summary-printable, #insurance-claim-printable {
+        display: block !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}
+
+
+
+/* Vehicle Transport Selection Cards */
+.vehicle-card {
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    border: 2px solid #e2e8f0;
+}
+.vehicle-card:hover {
+    border-color: var(--lux-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(14, 32, 56, 0.08);
+}
+.vehicle-card.active {
+    border-color: var(--lux-navy) !important;
+    background: #fbf8f3 !important;
+    box-shadow: 0 4px 16px rgba(14, 32, 56, 0.12) !important;
+}
+
+/* ==========================================================================
+   Mobile Responsive Modal Sheets & Interactive Touch Ergonomics
+   ========================================================================== */
+@media (max-width: 640px) {
+    .modal-sheet-mobile {
+        align-items: flex-end !important;
+        padding: 0 !important;
+    }
+    .modal-sheet-mobile > div {
+        max-height: 90vh !important;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        box-shadow: 0 -10px 35px rgba(6, 49, 93, 0.25) !important;
+        animation: slideUpMobile 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+}
+
+@keyframes slideUpMobile {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Button Loading & Disabled States */
+button:disabled {
+    opacity: 0.65 !important;
+    cursor: not-allowed !important;
+    filter: grayscale(20%);
+    pointer-events: none;
+}
+
+
